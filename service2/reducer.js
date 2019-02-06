@@ -1,15 +1,19 @@
-import { SET_TEXT } from "./type";
+import { SET_ITEMS } from "./type";
 
+// const initialState = 
+// {
+//   text: ""
+// };
 const initialState = {
-  text: ""
-};
+  items: []
+}
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case SET_TEXT:
+    case SET_ITEMS:
       return {
         ...state,
-        text: action.payload
+        items: [...state.items, action.payload]
       };
 
     default:

@@ -1,17 +1,16 @@
-import { SET_TEXT } from "./type";
-import {store} from '../page/App3';
+import { SET_ITEMS } from "./type";
 
-const setTextAction = input => {
+const setItemsAction = input => {
   return {
-    type: SET_TEXT,
+    type: SET_ITEMS,
     payload: input
   };
 };
 
-export const setText = (input) => {
+export const setItems = (input) => {
     // console.warn(input)
     // return dispatch => {
     //     dispatch(setTextAction(input));
     // }
-    return store.dispatch(setTextAction(input));
+    return setItemsAction(input);
   };
