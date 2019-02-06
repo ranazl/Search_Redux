@@ -8,7 +8,8 @@ class Colorlistener extends Component {
         
             <View style={styles.container}>
                 <View style={{height:200,width:200,alignItems:'center',backgroundColor:this.props.color}}>
-                <Text style={{fontSize:16}}>{this.props.name}</Text>
+               
+                <Text style={{fontSize:16}}>{this.props.Firstname}</Text>
                 <Text style={{fontSize:16}}>{this.props.Lastname}</Text>
                 
                 </View>
@@ -29,7 +30,8 @@ const styles = StyleSheet.create({
 const mapStateToProps=(state)=>{
     return{
         color:state.color,
-        name:state.name,
+        
+        Firstname:state.Firstname,
         Lastname:state.Lastname
     }
 

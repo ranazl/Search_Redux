@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View,StyleSheet,TouchableHighlight,TextInput} from 'react-native'
-import {setBLUE ,setRED, setYELLOW,setPINK, setLASTNAME} from '../service/action'
+import {setBLUE ,setRED, setYELLOW,setPINK, setLASTNAME, setFIRSTNAME} from '../service/action'
 import {connect} from 'react-redux'
  class Colorchanger extends Component {
 
@@ -17,11 +17,20 @@ import {connect} from 'react-redux'
     else if(c==='PINK'){
         this.props.dispatch(setPINK())
     }
+    // else if(c==='FIRSTNAME'){
+    //     this.props.dispatch(setFIRSTNAME(text))
+    // }
     else if(c==='LASTNAME'){
         this.props.dispatch(setLASTNAME(text))
     }
 
  }
+
+ colorDispatcher2=(c ,text)=>{
+    if(c==='FIRSTNAME'){
+        this.props.dispatch(setFIRSTNAME(text))
+    }
+}
  render(){
      return(
          
@@ -30,9 +39,16 @@ import {connect} from 'react-redux'
         <TouchableHighlight onPress={this.colorDispatcher.bind(this , 'RED' )}><Text>RED</Text></TouchableHighlight>
         <TouchableHighlight onPress={this.colorDispatcher.bind(this , 'YELLOW' )}><Text>YELLOW</Text></TouchableHighlight>
         <TouchableHighlight onPress={this.colorDispatcher.bind(this , 'PINK' )}><Text>PINK</Text></TouchableHighlight>
+        <View><TextInput onChangeText={(this.colorDispatcher2.bind(this , 'FIRSTNAME' ))}
+        style={{width:200,height:40,borderWidth:1,borderColor:'black'}}></TextInput>
+        </View>
         <View><TextInput onChangeText={(this.colorDispatcher.bind(this , 'LASTNAME' ))}
-        style={{width:200,height:40,borderWidth:1,borderColor:'black'}}></TextInput></View>
+        style={{width:200,height:40,borderWidth:1,borderColor:'black'}}></TextInput>
+        </View>
     </View>
+    // <View>
+    //     <TextInput onChangeText={(this.colorDispatcher.bind(this,'FIRSTNAME'))}></TextInput>
+    // </View>
      );
  }
 

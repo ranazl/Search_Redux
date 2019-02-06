@@ -1,4 +1,4 @@
-import {RED,BLUE,YELLOW,PINK, LASTNAME}from './type'
+import {RED,BLUE,YELLOW,PINK, LASTNAME, FIRSTNAME}from './type'
 
 
 
@@ -37,6 +37,17 @@ export const setPINK=()=>
         type:LASTNAME,
         changel :{
             Lastname : inputl
+        }
+
+    }
+}
+export const setFIRSTNAME=(inputF)=>
+{
+ 
+    return{
+        type:FIRSTNAME,
+        changeF :{
+            Firstname : inputF
         }
 
     }

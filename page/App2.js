@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import {Provider}  from 'react-redux';
 import Colorchanger from '../Component/Colorchanger';
 import Colorlistener from '../Component/Colorlistener';
-import reducer from '../service/reduser'
+import reducer from '../service/reducer'
 
 const store=createStore(reducer)
 
