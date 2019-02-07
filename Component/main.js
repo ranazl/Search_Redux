@@ -9,6 +9,25 @@ import {
 import { connect } from "react-redux";
 
 class Main extends Component {
+
+  constructor(props){
+    super(props);
+
+   this.state={
+        text : '',
+        index:''
+    }
+}
+
+Remover =(item) => {
+
+  this.props.setDelete(this.state.text)
+  this.setState({
+    text: ''
+})
+
+}
+
   render() {
     return (
       <View style={styles.container}>
@@ -17,7 +36,10 @@ class Main extends Component {
         <FlatList
           data={this.props.items}
           keyExtractor={item => item}
-          renderItem={({ item }) => <Text>{item} </Text>}
+          renderItem={({ item }) => <TouchableHighlight onPress={x => this.Remover(item)}> 
+            <Text style={styles.textt}>{item}</Text> 
+            </TouchableHighlight>
+            }
         />
       </View>
     );
@@ -29,7 +51,11 @@ const styles = StyleSheet.create({
     flex: 7,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "pink"
+    backgroundColor: "white"
+  },
+  textt: {
+    color:'black',
+    fontSize: 18,
   }
 });
 

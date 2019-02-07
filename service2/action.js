@@ -1,4 +1,4 @@
-import { SET_ITEMS } from "./type";
+import { SET_ITEMS, REMOVE_ITEMS } from "./type";
 
 const setItemsAction = input => {
   return {
@@ -14,3 +14,17 @@ export const setItems = (input) => {
     // }
     return setItemsAction(input);
   };
+
+
+//REMOVE
+  const setItemsRemove = index => {
+    return {
+      type: REMOVE_ITEMS,
+      payload: index
+    };
+  };
+  
+  export const setDelete = (index) => {
+ 
+      return setItemsRemove(index);
+    };

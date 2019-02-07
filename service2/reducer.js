@@ -1,4 +1,4 @@
-import { SET_ITEMS } from "./type";
+import { SET_ITEMS,REMOVE_ITEMS } from "./type";
 
 // const initialState = 
 // {
@@ -15,7 +15,15 @@ function reducer(state = initialState, action) {
         ...state,
         items: [...state.items, action.payload]
       };
-
+//REMOVE
+      case REMOVE_ITEMS:
+      if (state.setItemsRemove.indexOf(action.payload) > -1)
+      {  return {
+        ...state,
+        setItemsRemove: state.filter(item => item !== action.payload)
+      };
+}
+      
     default:
       return state;
   }
