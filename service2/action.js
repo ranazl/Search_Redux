@@ -1,4 +1,5 @@
-import { SET_ITEMS, REMOVE_ITEMS } from "./type";
+import { SET_ITEMS, REMOVE_ITEMS, SET_ID} from "./type";
+
 
 const setItemsAction = input => {
   return {
@@ -27,4 +28,15 @@ export const setItems = (input) => {
   export const setDelete = (index) => {
  
       return setItemsRemove(index);
+    };
+
+    const setItemsID = () => {
+      return {
+        type: SET_ID,
+       
+      };
+    };
+    export const setID = () => {
+ 
+      return setItemsID();
     };

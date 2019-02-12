@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableHighlight,} from 'react-native';
 import {setItems} from '../service2/action';
+import {setID} from '../service2/action';
 import {connect} from 'react-redux';
 
 
@@ -16,6 +17,7 @@ class search extends Component {
     }
     
     pressButton=() =>{
+        this.props.setID(),
         this.props.setItems(this.state.text)
         this.setState({
             text: ''
@@ -34,7 +36,7 @@ class search extends Component {
         return (
             <View style={styles.container}>
                 <View style={{flex:1,flexDirection:'row',borderTopWidth:2, borderTopColor: 'black',paddingTop: 10,backgroundColor:'#CD5C5C'}}>
-                    <TextInput value={this.state.text} style={styles.inputStyle} onChangeText={this.onTextChangeHandler.bind(this)} placeholder={'text'}/>
+                    <TextInput value={this.state.text} style={styles.inputStyle} onChangeText={this.onTextChangeHandler.bind(this)} placeholder={'text...'}/>
                     <TouchableHighlight style={styles.sendPress} onPress={this.pressButton} underlayColor='rgba(100,100,100,.2)'><Text style={styles.send}>send</Text></TouchableHighlight>
                 </View>
             </View>
@@ -67,9 +69,9 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         marginRight:10,
-        borderColor: 'black',
-        // borderWidth:1,
-        elevation:10,
+        borderColor: '#520b4a',
+        borderWidth:2,
+        // elevation:10,
     },
     send:{
         fontWeight:'bold',
@@ -79,4 +81,4 @@ const styles = StyleSheet.create({
 
 
 
-export default connect(null, {setItems})(search);
+export default connect(null, {setItems , setID})(search);

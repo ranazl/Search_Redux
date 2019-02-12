@@ -7,6 +7,7 @@ import {
   TouchableHighlight
 } from "react-native";
 import { connect } from "react-redux";
+import {setDelete} from '../service2/action';
 
 class Main extends Component {
 
@@ -19,12 +20,12 @@ class Main extends Component {
     }
 }
 
-Remover =(item) => {
+Remover = (index) => {
 
-  this.props.setDelete(this.state.text)
-  this.setState({
-    text: ''
-})
+  this.props.setDelete(index)
+//   this.setState({
+//     text: ''
+// })
 
 }
 
@@ -34,10 +35,10 @@ Remover =(item) => {
         {/* <Text style={{fontSize:18}}>{this.props.text}</Text> */}
         
         <FlatList
-          data={this.props.items}
+          data={this.props.rana}
           keyExtractor={item => item}
-          renderItem={({ item }) => <TouchableHighlight onPress={x => this.Remover(item)}> 
-            <Text style={styles.textt}>{item}</Text> 
+          renderItem={({ item , index }) => <TouchableHighlight onPress={this.Remover.bind(this, index)}> 
+            <Text style={styles.textt}>{item.text}</Text> 
             </TouchableHighlight>
             }
         />
@@ -61,12 +62,12 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   return {
-    items: state.items
+    rana: state.items
     // datas : state
   };
 };
 
 export default connect(
   mapStateToProps,
-  {}
+  {setDelete}
 )(Main);
